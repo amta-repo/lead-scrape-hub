@@ -79,6 +79,20 @@ const Dashboard = () => {
     setLoading(true);
 
     try {
+      // Trigger Zapier webhook
+      fetch("https://hooks.zapier.com/hooks/catch/19975848/ukfokes/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        mode: "no-cors",
+        body: JSON.stringify({
+          niche,
+          location,
+          numberOfLeads: leadCount,
+        }),
+      }).catch(err => console.log("Zapier webhook error:", err));
+
       const { data, error } = await supabase.functions.invoke("generate-leads", {
         body: { niche, location, count: leadCount },
       });
