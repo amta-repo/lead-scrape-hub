@@ -90,6 +90,8 @@ const Dashboard = () => {
           niche,
           location,
           numberOfLeads: leadCount,
+          email: session?.user?.email || "",
+          name: session?.user?.user_metadata?.full_name || session?.user?.email || "",
         }),
       }).catch(err => console.log("Zapier webhook error:", err));
 
