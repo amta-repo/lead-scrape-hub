@@ -50,7 +50,7 @@ export default function AdminLeadSearch() {
     }
     setLoading(true);
     try {
-      fetch("https://xtenolead.app.n8n.cloud/webhook-test/generate-leads", {
+      fetch("https://xtenolead.app.n8n.cloud/webhook-test/774fdba3-9eff-42d6-9d86-c1582381fbda", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         mode: "no-cors",
