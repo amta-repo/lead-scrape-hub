@@ -79,7 +79,7 @@ const Dashboard = () => {
     setLoading(true);
 
     try {
-      // Trigger Zapier webhook
+      // Trigger webhook
       fetch("https://xtenolead.app.n8n.cloud/webhook-test/774fdba3-9eff-42d6-9d86-c1582381fbda", {
         method: "POST",
         headers: {
@@ -90,10 +90,11 @@ const Dashboard = () => {
           niche,
           location,
           numberOfLeads: leadCount,
+          credits,
           email: session?.user?.email || "",
           name: session?.user?.user_metadata?.full_name || session?.user?.email || "",
         }),
-      }).catch(err => console.log("Zapier webhook error:", err));
+      }).catch(err => console.log("Webhook error:", err));
 
       const { data, error } = await supabase.functions.invoke("generate-leads", {
         body: { niche, location, count: leadCount },
