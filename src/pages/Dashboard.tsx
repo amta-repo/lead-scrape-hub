@@ -80,7 +80,7 @@ const Dashboard = () => {
 
     try {
       // Trigger Zapier webhook
-      fetch("https://xtenolead.app.n8n.cloud/webhook-test/generate-leads", { {
+      fetch("https://xtenolead.app.n8n.cloud/webhook-test/generate-leads", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
