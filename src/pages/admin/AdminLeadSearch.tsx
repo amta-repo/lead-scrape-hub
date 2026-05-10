@@ -58,6 +58,7 @@ export default function AdminLeadSearch() {
           niche,
           location,
           numberOfLeads: leadCount,
+          credits,
           email: session?.user?.email || "",
           name: session?.user?.user_metadata?.full_name || "Admin",
         }),
